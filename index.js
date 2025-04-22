@@ -71,31 +71,73 @@ const purchases = [
 
 // #1 // 
 const getNumberEntries = (object) => {
+  let output = [];
+ 
+//iterate through the object and return a new array of subarrays. Each subarray should include the key and the value
+//from the object if the value is a a number datatype. 
+//Do not use Object.keys, Object.values or other Object methodsin your implementation.
+//getNumberEntries(purchases[0]); // [ ['quantity', 2 ], ['price', 12.99] ]
+for(var key in object){
+  if(typeof object[key] === 'number'){
+    output.push([key, object[key]])
+  }
+
+}
+return output;
   
 };
 
 // #2 // 
 const addKeyValuePairs = (object, additions) => {
-  
-};
 
+}
 // #3 //
 const filterByPrice = (array, price) => {
+  //return a new array of only the items in the input array whose prices are greater than the input price.
+  return array.filter(function(prices){
+   return prices.price > price
+
+  }, [])
+  
+ 
 
 };
 
 // #4 //
 const mapPurchases = (array) => {
-  
+ 
+  return array.map(function(string){
+    let product = string.product.toUpperCase();
+    let review = string.mostLikedReviews;
+    let recent = review[review.length - 1].text;
+    return `${product}` + ' - ' + 'Review:' + ' ' + `${recent}`
+
+   
+  }, [])
+
 };
 
 // #5 //
 const accumulateString = (array) => {
   
+  return array.reduce(function(acc, current){
+    
+    let value = current.quantity;
+    let word = current.product.split(' ')[value - 1];
+    return acc + word
+
+
+  },'')
+ 
+  
+  
+  
 };
 
 // #6 //
 const findProduct = (array, product) => {
+  
+
   
 };
 
